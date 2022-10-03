@@ -11,3 +11,4 @@ My Solutions to [CS50 Labs & Problems](https://www.edx.org/course/introduction-c
 | --- | --- |
 |Problem Set 0|[Scratch Program](https://github.com/KenSteadman/CS-50/tree/main/Problem%20Set%200) |
 |Problem Set 1|[C](https://github.com/KenSteadman/CS-50/tree/main/Problem%20Set%201) |
+|Lab 2|[Scrabble](https://github.com/KenSteadman/CS50x/tree/main/Labs/Lab2) |
