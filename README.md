@@ -4,7 +4,7 @@
 
 An introduction to the intellectual enterprises of computer science and the art of programming. 
 
-My Solutions to [CS50 Problems](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x).
+My Solutions to [CS50 Labs & Problems](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x).
 
 ## Problem Sets
 | Week | Description |
