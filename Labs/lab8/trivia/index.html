@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/cursive-serif" rel="stylesheet">
+        <style>
+            @import url('https://fonts.cdnfonts.com/css/cursive-serif');
+        </style>
+        <title>Trivia!</title>
+
+    </head>
+    <body>
+        <div class="header">
+            <h1>This is CS 50 Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2 class = "qoute" >“As long as there are those that remember what was, there will always be those that are unable to accept what can be.”<br> - Thanos
+                </h2>
+                <hr>
+                <h3>How many Infinity Stones are there?</h3>
+                <button class="multiple incorrect glow-on-hover">3</button>
+                <button class="multiple incorrect glow-on-hover">5</button>
+                <button class="multiple correct glow-on-hover">6</button>
+                <button class="multiple incorrect glow-on-hover">7</button>
+                <button class="multiple incorrect glow-on-hover">10</button>
+                <p id="feedback_1"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>How well do you know your phobias?</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3> What is "cynophobia"?</h3>
+                <input type="text">
+                <button id="free-button" class="glow-on-hover">Check Answer</button>
+                <p id="feedback_2"></p>
+                <div class="correct-answer"><!-- Placeholder for correct answers --></div>
+
+            </div>
+            <div class="score">
+                <!-- Placeholder for correct answers -->
+              </div>
+            <div class = "section-reset">
+                <button id="reset-button" class="glow-on-hover">Reset</button>
+            </div>
+        </div>
+        <script type="text/javascript">
+
+            // Score all correct answer
+            let score = 0
+            // Get all buttons with the class "multiple"
+            const multipleButtons = document.querySelectorAll('.multiple');
+
+            // Flag variable to track whether the multiple choice question has been answered correctly
+            let multipleAnsweredCorrectly = false;
+
+            // Set the display style of the score div to none by default
+            document.querySelector('.score').style.display = 'none';
+
+            // Add a click event listener to each button
+            multipleButtons.forEach(button => {
+                button.addEventListener('click', event => {
+                    // Reset the background color and text content of all multiple choice buttons
+                    multipleButtons.forEach(otherButton => {
+                        otherButton.style.backgroundColor = '';
+                        otherButton.classList.remove('correct-glow');
+                        otherButton.classList.remove('incorrect-glow');
+                    });
+                    document.querySelector('#feedback_1').textContent = '';
+
+                    // Check if the button has the "correct" class and the question has not already been answered correctly
+                    if (button.classList.contains('correct') && !multipleAnsweredCorrectly) {
+                        // If it does, add the "correct-glow" class to the button
+                        button.classList.add('correct-glow');
+                        document.querySelector('#feedback_1').textContent = 'Correct!';
+
+                        // Increment the score
+                        score++;
+                        // Update the score on the page
+                        const scoreContainer = document.querySelector('.score');
+                        scoreContainer.textContent = `Correct answers: ${score}`;
+                        // Set the display style of the score div to block
+                        scoreContainer.style.display = 'block';
+
+                        // Set the flag to true to indicate that the question has been answered correctly
+                        multipleAnsweredCorrectly = true;
+                    } else if (button.classList.contains('correct') && multipleAnsweredCorrectly) {
+                        // If the question has already been answered correctly, add the "correct-glow" class to the button
+                        button.classList.add('correct-glow');
+                    } else {
+                    // If it doesn't, add the "incorrect-glow" class to the button
+                    button.classList.add('incorrect-glow');
+                    document.querySelector('#feedback_1').textContent = 'Incorrect';
+                    }
+                });
+            });
+
+            // Get the free-response button
+            const freeButton = document.querySelector('#free-button');
+
+            // Flag variable to track whether the free-response question has been answered correctly
+            let freeAnsweredCorrectly = false;
+
+            // Add a click event listener to the button
+            freeButton.addEventListener('click', event => {
+              // Get the value of the input field
+              const inputValue = document.querySelector('input').value;
+
+              // Check if the input value is correct and the question has not already been answered correctly
+                if (inputValue.toLowerCase() === 'fear of dogs' && !freeAnsweredCorrectly) {
+                    // If it is, turn the input field green and show "Correct!" text
+                    document.querySelector('input').style.backgroundColor = 'green';
+                    document.querySelector('#feedback_2').textContent = 'Correct!';
+
+                    // Increment the score
+                    score++;
+                    // Update the score on the page
+                    const scoreContainer = document.querySelector('.score');
+                    scoreContainer.textContent = `Correct answers: ${score}`;
+
+                    // Set the display style of the score div to block
+                    scoreContainer.style.display = 'block';
+
+                    // Set the flag to true to indicate that the question has been answered correctly
+                    freeAnsweredCorrectly = true;
+                } else if (inputValue !== '' && !freeAnsweredCorrectly) {
+                    // If it isn't, turn the input field red and show "Incorrect" text
+                    document.querySelector('input').style.backgroundColor = 'red';
+                    document.querySelector('#feedback_2').textContent = 'Incorrect';
+
+                    // Update the correct answer on the page
+                    const correctAnswerContainer = document.querySelector('.correct-answer');
+                    correctAnswerContainer.textContent = 'The correct answer is: Fear of Dogs';
+              }
+            });co
+            function resetQuiz() {
+            // Reset the background color and text content of the multiple choice buttons
+                multipleButtons.forEach(button => {
+                    button.style.backgroundColor = '';
+                    button.classList.remove('correct-glow');
+                    button.classList.remove('incorrect-glow');
+                });
+                document.querySelector('#feedback_1').textContent = '';
+
+                // Reset the background color and value of the input field
+                document.querySelector('input').style.backgroundColor = '';
+                document.querySelector('input').value = '';
+                document.querySelector('#feedback_2').textContent = '';
+
+                // Reset the correct answer on the page
+                const correctAnswerContainer = document.querySelector('.correct-answer');
+                correctAnswerContainer.textContent = '';
+
+                // Reset the flag variables
+                multipleAnsweredCorrectly = false;
+                freeAnsweredCorrectly = false;
+
+
+                // Reset the score
+                score = 0;
+
+                // Set the display style of the score div to none
+                document.querySelector('.score').style.display = 'none';
+
+                // Update the score on the page
+                const scoreContainer = document.querySelector('.score');
+                scoreContainer.textContent = '';
+            }
+
+            // Call the reset function when the page loads
+            resetQuiz();
+
+            // Get the reset button
+            const resetButton = document.querySelector('#reset-button');
+
+            // Add a click event listener to the reset button
+            resetButton.addEventListener('click', event => {
+                // Call the reset function
+                resetQuiz();
+            });
+
+          </script>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: the time was the fasts on a sorted files compared to others. 
+
+sort2 uses: Merge Sort
+
+How do you know?: sort2 was the fastest during runs of random txt files
+
+sort3 uses: Selection Sort
+
+How do you know?: The sorted txt files this alogrithm was the slowest.
