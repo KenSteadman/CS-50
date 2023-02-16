@@ -1,0 +1,151 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+
+}
+
+h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+}
+.img-fluid{
+    height: 90%;
+}
+.footer-container{
+  width: 100%;
+  padding-right: var(--bs-gutter-x,8rem);
+  padding-left: var(--bs-gutter-x,8rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  }
+
+  .form-control-dark {
+    color: #fff;
+    background-color: var(--bs-dark);
+    border-color: var(--bs-gray);
+  }
+  .form-control-dark:focus {
+    color: #fff;
+    background-color: var(--bs-dark);
+    border-color: #fff;
+    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
+  }
+
+  .bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+  }
+
+  .text-small {
+    font-size: 85%;
+  }
+
+  .dropdown-toggle {
+    outline: 0;
+  }
+
+  /*  Experience page styling */
+  /* Add a bold font and a large font size to the page header */
+.page-header h1 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 3em;
+  }
+
+  /* Use the "text-primary" Bootstrap class to make the navigation links stand out */
+  .nav-link {
+    color: var(--primary);
+  }
+
+  /* Use the "bg-primary" Bootstrap class to add a blue background color to the header */
+  header {
+    background-color: var(--primary);
+  }
+
+  /* Add a border and some padding to the cards in the accordion */
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 1em;
+  }
+
+  /* Use the "text-secondary" Bootstrap class to make the headings in the cards stand out */
+  .card-header h2 {
+    color: var(--secondary);
+  }
+
+  /* Use the "text-muted" Bootstrap class to make the text in the cards less prominent */
+  .card-body {
+    color: var(--muted);
+  }
+  .accordion .card {
+    border: 10px solid;
+    border-image: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff) 1;
+  }
+
+  /* Contact page styling */
+  .glow-on-hover {
+    margin: 10px;
+    width: 100px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #2111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
